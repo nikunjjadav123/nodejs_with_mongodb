@@ -7,7 +7,7 @@ async function ConnMongodb() {
     const teams = database.collection("teams");
 
     const mydoc = {
-        name: "Nikunj123",
+        name: "Keyur",
         phone: 11675,
         marks: 50,
         remarks: "nice"
