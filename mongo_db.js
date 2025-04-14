@@ -1,13 +1,26 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
-var url = "mongodb+srv://dirensj:dirensj@cluster0.rdocipt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const { MongoClient } = require("mongodb");
+const uri = "mongodb://127.0.0.1:27017";
+// const uri = "mongodb+srv://dirensj:dirensj@cluster0.rdocipt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";  
+const client = new MongoClient(uri);
+async function ConnMongodb() {
+    const database = client.db("ipl_2025");
+    const teams = database.collection("teams");
 
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("ipl_2025_db");
-  var myobj = { team_name: "Rajasthan Royals", team_city: "Jaipur and Guwahati" };
-  dbo.collection("ipl_2025_collection").insertOne(myobj, function(err, res) {
-    if (err) throw err;
-    console.log("1 entry inserted");
-    db.close();
-  });
-});
+    const mydoc = {
+        name: "Nikunj123",
+        phone: 11675,
+        marks: 50,
+        remarks: "nice"
+    };
+
+    // const query = { name: "Rahul" };
+    const option = { projection: { _id: 0, name: 1, phone: 1 } };
+
+    const insertOut = await teams.insertOne(mydoc);
+    // const stdata = await teams.findOne(query, option);
+    console.log(insertOut);
+
+    await client.close();
+}
+
+ConnMongodb();

@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "mongodb": "^6.15.0"
-  }
+    "express": "^5.1.0",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2"
+  },
+  "name": "node_js",
+  "version": "1.0.0",
+  "main": "mongo_db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
