@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const uri = "mongodb://127.0.0.1:27017";
+const uri = "mongodb://127.0.0.1:27017"; /* local repository */
 // const uri = "mongodb+srv://dirensj:dirensj@cluster0.rdocipt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";  
 const client = new MongoClient(uri);
 async function ConnMongodb() {
